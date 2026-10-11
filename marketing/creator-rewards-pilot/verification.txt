@@ -1,0 +1,7 @@
+Verified 2026-10-11
+MP4 fully decoded without errors using FFmpeg 7.1.
+Duration: 59.00 seconds; video: H.264, 1920x1080, 30 fps, 1770 frames.
+Audio: AAC 48 kHz mono; complete 59-second soundtrack, peak 0.617 before encoding, no clipping.
+19 English subtitle cues; maximum rendered width 978px within 1740px safe width.
+All seven scene snapshots visually inspected; text and CTA fit.
+No external publication or product/provider mutation performed.

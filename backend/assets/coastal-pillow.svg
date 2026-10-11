@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Illustrative concept pillow, not an Arcade product">
+<rect width="800" height="600" fill="#edf3f5"/>
+<path d="M185 110 Q400 75 615 110 Q650 300 615 490 Q400 525 185 490 Q150 300 185 110Z" fill="#dfcda9" stroke="#193b47" stroke-width="4"/>
+<path d="M182 280 Q290 160 380 280 T620 270 L615 490 Q400 525 185 490Z" fill="#22776d"/>
+<path d="M178 380 Q310 220 390 350 T628 350 L615 490 Q400 525 185 490Z" fill="#193b47"/>
+<circle cx="475" cy="190" r="42" fill="#f36c32"/>
+<path d="M320 485 Q440 440 355 380 T380 285" fill="none" stroke="#edf3f5" stroke-width="15"/>
+<text x="400" y="563" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#193b47">Concept illustration · no Arcade provenance</text>
+</svg>

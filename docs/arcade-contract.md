@@ -1,0 +1,23 @@
+# Arcade contract verified 2026-10-11
+
+Public documentation only; no API key inspected, no authenticated API calls, no generations. Base URL https://platform.arcade.ai/v1. All endpoints below POST JSON with bearer auth and integration User-Agent naming contact.
+
+## Requests and responses
+
+- categories/list `{}` => `{items:[{categoryId,name,imageUrl:string|null,world:print|jewelry,category?:{categoryId,name}}]}`. Current category IDs and names are not published in docs and require authenticated read. Do not hardcode category IDs from quickstart examples.
+- categories/get `{categoryId,selections?:Record<string,string>}` => `{categoryId,name,options:[{key,label,values:[{value,label,isDefault,available}]}],selections:Record<string,string>,canManufacture,world,category?}`. Initial selections `{}` is valid, but products/create requires the COMPLETE returned selections. Check world=print and canManufacture=true. Choices have joint constraints; add only available:true values, querying again after each choice.
+- patterns/create `{requestId,prompt,referenceIds?,modelId?,colors?,categoryId?}` => job. For separate pattern -> product path omit categoryId. Required prompt 1..1000 chars; requestId 1..128. Optional categoryId produces pattern+product in one job and provider chooses print options; distinct from handoff's requested two stages.
+- jobs/get `{jobId}` => `{jobId,kind:pattern|product|download,status:running|succeeded|failed,result:null|{patternId,productId?}|{productId}|{downloadUrl,expiresAt},error:null|{message},createdAt,completedAt:string|null}`. No queued state. Null success result is possible; do not assume IDs exist. Poll every 2-5s, generation normally 1-2 minutes. No provider cancellation or timeout specified; local timeout should preserve ID and allow later polling.
+- patterns/get `{patternId}` => `{patternId,prompt:string|null,sourcePatternId:string|null,createdAt,imageUrl,thumbnailUrl,width,height}`.
+- products/create `{requestId,patternId,categoryId,selections,fit?}` => product job. Rejects jewelry patterns/categories. Fit is required if pattern aspect ratio differs from selected size; `{mode:"fill"}` avoids crop math. Crop form is `{mode:"crop",crop:{height,left,top,width},zoomLevel:1|2|3|4|8|12}`; crop width/height >=16, left/top >=0, units pattern pixels.
+- products/get `{productId,quantity?:integer>=1}` => `{productId,title,categoryId,maker:{makerId,name},selections,selectionLabel,imageUrl,createdAt,images:[{url}],description:string|null,careInstructions,volumeDiscounts:null|{currency,tiers:[{minimumSpend,maximumSpend:string|null,discountPercent}]},patternId,unitPrice:null|{amount:string,currency:string}}`. Primary thumbnail=imageUrl, images primary first. Unit amount is DECIMAL STRING, not integer cents; provider currency ISO4217. UnitPrice quoted for quantity before volume discount and may be temporarily null. No proof of tax/shipping total.
+- products/list `{cursor?,limit?:1..100(default24)}` => `{items:[{productId,title,categoryId,maker,selections,selectionLabel,imageUrl,createdAt,patternId}],nextCursor:string|null}`. No jobId here or products/get. jobs/get only documents jobId input; do not assume productId is an alias.
+
+## Retry and provenance
+
+- Start operations accept requestId. Retry timeout/failure with SAME requestId AND identical body; original work runs once and replay returns original response. 409 may mean original still starting (retry unchanged shortly), body mismatch (fix/new distinct request), or other reason in message. Failed validation does not consume key. No requestId retention duration documented.
+- 5xx retry with backoff, same requestId; 429 respect Retry-After seconds, same requestId. Other 4xx fix first. Error body generally {code,status,message}; 422 adds data.fieldErrors/formErrors; 429 instead {error,message}; edge403 and malformed JSON400/oversize413 may be non-JSON.
+- Persist immutable exact start bodies, stage requestIds, pattern jobId, product jobId, patternId and productId before advancing. Ambiguous start must never get a new requestId automatically. Product provenance can use product.patternId and product.createdAt. Existing product import lacks documented jobId recovery, so providerJobId must remain null/unknown unless independently supplied/proven.
+- All pattern/product image URLs short lived, arbitrary provider host, no guaranteed TTL or expiry field. Retrieve the object again to renew, preserve IDs. Never spoof IDs for mock.
+
+Sources: https://docs.arcade.ai/openapi.json ; https://docs.arcade.ai/quickstart ; https://docs.arcade.ai/jobs ; https://docs.arcade.ai/idempotency ; https://docs.arcade.ai/authentication ; https://docs.arcade.ai/errors .

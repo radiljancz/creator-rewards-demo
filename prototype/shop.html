@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offgrid Supply · Creator Rewards demo shop</title><link rel="icon" href="data:,">
+<style>
+:root{--ink:#193b47;--muted:#647981;--orange:#ef713f;--paper:#f7f6f0;--line:#d8e1db;--green:#307e65}*{box-sizing:border-box}body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}a{color:inherit}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}.topbar{padding:8px 5%;text-align:center;background:var(--ink);color:#e2ede8;font-size:11px;letter-spacing:.5px}header{padding:22px 5%;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:22px;font-weight:780;letter-spacing:-1px;text-decoration:none}.brand span{color:var(--orange)}nav{display:flex;gap:25px;font-size:12px}nav a{text-decoration:none}.shell{max-width:1420px;margin:auto;padding:40px 5% 70px;display:grid;grid-template-columns:minmax(0,1fr) 365px;gap:42px}.eyebrow{text-transform:uppercase;letter-spacing:1.8px;font-size:10px;font-weight:750;color:var(--green)}h1{font-size:clamp(42px,4.8vw,66px);letter-spacing:-3px;line-height:1.05;font-weight:740;margin:17px 0 20px;max-width:620px}h1 em{font-family:Georgia,serif;font-weight:400}p{margin:0}.intro{color:var(--muted);max-width:490px;font-size:15px}.landscape{height:230px;background:#dfebe6;border-radius:120px 120px 14px 14px;margin:28px 0 26px;position:relative;overflow:hidden}.landscape svg{width:100%;height:100%;display:block}.landscape-label{position:absolute;left:24px;bottom:18px;color:#fffaf0;font-size:11px;letter-spacing:.5px}.shop-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}h2{font-size:20px;letter-spacing:-.5px;margin:0}.tiny{font-size:11px;color:var(--muted)}.products{display:grid;grid-template-columns:1fr 1fr;gap:15px}.product{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fffdf8}.product[aria-pressed=true]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}.product-visual{height:126px;display:grid;place-items:center;background:#e8ece7;position:relative}.product:nth-child(even) .product-visual{background:#e9e2d5}.product-visual svg{width:150px;height:113px}.choice-mark{position:absolute;right:13px;top:13px;width:22px;height:22px;border:1px solid #96aaa3;border-radius:50%;background:#fffdf8;color:var(--ink);font-size:13px;display:grid;place-items:center}.product[aria-pressed=true] .choice-mark{color:white;background:var(--ink);border-color:var(--ink)}.product-copy{padding:15px}.product-name{font-size:14px;line-height:1.3;font-weight:700;display:block}.product-price{display:block;font-size:19px;font-weight:700;margin:8px 0}.select{width:100%;border:1px solid var(--line);border-radius:7px;padding:8px;background:transparent;color:var(--ink);font-size:11px;font-weight:700}.product[aria-pressed=true] .select{background:var(--ink);color:white;border-color:var(--ink)}.basket{border-top:1px solid var(--line);padding-top:16px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:13px}.basket strong{font-size:22px;letter-spacing:-.6px}.demo-note{font-size:11px;color:var(--muted);margin-top:13px}.side{padding-top:5px}.referral{padding:10px 14px;margin-bottom:14px;font-size:11px;border-radius:10px;border:1px solid #cbded3;background:#eaf0e7;color:var(--green)}.referral a{font-weight:700}#creator-rewards-slot{position:sticky;top:20px}.loading{padding:30px;background:#e8ece7;border-radius:14px;font-size:12px;color:var(--muted)}.error{color:#b0432b;font-size:12px;margin-top:15px}footer{padding:22px 5%;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:11px;color:var(--muted)}@media(max-width:1000px){.shell{gap:25px;grid-template-columns:minmax(0,1fr) 335px;padding:30px 4%}.landscape{height:190px}.products{gap:10px}.product-copy{padding:12px}h1{font-size:47px}}@media(max-width:760px){header{padding:18px 6%}.brand{font-size:20px}nav{gap:15px;font-size:11px}.shell{grid-template-columns:1fr;padding:30px 6%;gap:28px}h1{font-size:50px;max-width:520px}.landscape{height:210px}.side{padding-top:0}#creator-rewards-slot{position:static}footer{padding:20px 6%;flex-direction:column;gap:8px}.topbar{font-size:10px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.setup-checkout{margin-top:14px}.setup-checkout button{width:100%;padding:13px 18px;border:0;border-radius:9px;background:var(--ink);color:white;font-weight:700}.setup-checkout button:disabled{opacity:.5;cursor:default}.setup-checkout p{font-size:11px;color:var(--muted);margin-top:7px}.checkout-result{padding:14px;border:1px solid var(--line);border-radius:10px;margin-top:12px;background:#eaf0e7}[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="topbar">LIVE TRACKING DEMO · SAMPLE PRODUCTS & ECONOMICS · NO REAL CHECKOUT</div>
+<header><a class="brand" href="/shop">offgrid supply<span>↗</span></a><nav><a href="#products">Explore the essentials</a><a href="/" id="merchant-dashboard-link">Merchant dashboard ↗</a></nav></header>
+<main class="shell"><section><div class="eyebrow">Good things happen outside.</div><h1>Power the trip.<br>Keep <em>the memory.</em></h1><p class="intro">Choose your adventure essentials. Discover a creator's collection and add your own finishing touch.</p>
+<div class="landscape"><svg viewBox="0 0 760 270" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrative mountains and campsite at sunset"><rect width="760" height="270" fill="#d6e5df"/><circle cx="568" cy="78" r="45" fill="#f2c17c"/><path d="M0 188L164 30 311 176 427 76 589 217 760 122V270H0Z" fill="#9bb9ae"/><path d="M164 30L107 90 163 72 183 103 196 82Z" fill="#f4f2df"/><path d="M0 222L193 126 380 249 568 151 760 226V280H0Z" fill="#507e76"/><path d="M0 254Q176 191 340 240T760 232V270H0Z" fill="#244f50"/><path d="M462 252L508 188 558 252Z" fill="#efaa67"/><path d="M508 188L535 252H558Z" fill="#ce7949"/><path d="M499 224L508 207 520 252H485Z" fill="#315a54"/><path d="M367 270Q407 235 480 252" fill="none" stroke="#e5d6ad" stroke-width="6" opacity=".8"/><path d="M106 256V180M77 230L106 182 134 230M84 213L106 171 128 213" fill="#244f50" stroke="#244f50" stroke-width="6"/></svg><span class="landscape-label">Adventure essentials. A collection with a story.</span></div>
+<div class="shop-title"><h2 id="products">Choose your setup</h2><span class="tiny">Model catalogue · USD</span></div><div class="products" id="product-list"><div class="loading">Loading products from the merchant campaign…</div></div><div class="basket"><span>Your demo basket · <span id="basket-name">—</span></span><strong id="basket-total">—</strong></div><div class="setup-checkout"><button id="setup-checkout" disabled>Continue with just this setup</button><p>No creator extra required. Demo only — no payment or order.</p><div class="checkout-result" id="checkout-result" role="status" hidden></div></div><p class="demo-note">Selecting a setup updates the creator benefit live. Product names, prices and campaign costs are editable model data.</p><p class="error" id="shop-error" role="status"></p></section>
+<aside class="side"><div class="referral" id="referral">Checking your creator link…</div><div id="creator-rewards-slot"></div></aside></main>
+<footer><span>Creator Rewards × Arcade · Independent demo storefront</span><span>Real browser events. Model rewards. No order or payment.</span></footer>
+<script src="/rewards.js" data-campaign="main"></script>
+<script>
+(() => {
+  'use strict';
+  let config, selected;
+  const $ = id => document.getElementById(id);
+  const powerStation = `<svg viewBox="0 0 190 145" aria-hidden="true"><ellipse cx="95" cy="127" rx="63" ry="8" fill="#193b47" opacity=".09"/><path d="M70 31V21Q70 15 78 15H119Q126 15 126 21V31" fill="none" stroke="#314a4b" stroke-width="8"/><path d="M34 44L54 31H147L158 46V118H34Z" fill="#40595a"/><rect x="34" y="45" width="124" height="75" rx="10" fill="#29484d"/><rect x="43" y="55" width="67" height="32" rx="4" fill="#132e33"/><rect x="51" y="61" width="28" height="5" rx="2" fill="#c0dad0"/><rect x="51" y="72" width="45" height="3" rx="1" fill="#557d72"/><circle cx="131" cy="72" r="12" fill="#193b47" stroke="#ef713f" stroke-width="3"/><circle cx="131" cy="72" r="5" fill="#0e2429"/><rect x="45" y="98" width="16" height="7" rx="2" fill="#9baea8"/><rect x="67" y="98" width="16" height="7" rx="2" fill="#9baea8"/><path d="M149 49V109" stroke="#ef713f" stroke-width="5"/></svg>`;
+  const money = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: config.currency }).format(value / 100);
+  async function choose(id) {
+    selected = id;
+    $('checkout-result').hidden = true;
+    document.querySelectorAll('.product').forEach(card => { const active = card.dataset.id === id; card.setAttribute('aria-pressed', String(active)); card.querySelector('.choice-mark').textContent = active ? '✓' : ''; card.querySelector('.select').textContent = active ? 'Selected for this trip' : 'Choose this setup'; });
+    const product = config.products.find(p => p.id === id);
+    $('basket-name').textContent = product?.name || '—';
+    $('basket-total').textContent = product ? money(product.price) : '—';
+    $('setup-checkout').disabled = !product;
+    await window.CreatorRewards.setBasket(product ? [{ productId: id, quantity: 1 }] : []);
+  }
+  $('setup-checkout').addEventListener('click', () => {
+    const product = config?.products.find(p => p.id === selected);
+    if (!product) return;
+    $('checkout-result').textContent = `Demo complete: ${product.name} · ${money(product.price)}. No creator extra added. No payment or order was placed.`;
+    $('checkout-result').hidden = false;
+  });
+  function render() {
+    $('product-list').replaceChildren(...config.products.map(product => {
+      const card = document.createElement('article'); card.className = 'product'; card.dataset.id = product.id; card.setAttribute('aria-pressed', 'false');
+      card.innerHTML = '<div class="product-visual"><span class="choice-mark"></span></div><div class="product-copy"><span class="product-name"></span><span class="product-price"></span><button class="select">Choose this setup</button></div>';
+      card.querySelector('.product-visual').insertAdjacentHTML('afterbegin', powerStation);
+      card.querySelector('.product-name').textContent = product.name;
+      card.querySelector('.product-price').textContent = money(product.price);
+      card.querySelector('.select').onclick = () => choose(product.id);
+      return card;
+    }));
+    if (!config.products.some(p => p.id === selected)) selected = config.products[0]?.id;
+    if (selected) choose(selected);
+  }
+  function renderReferral() {
+    const creator = window.CreatorRewards.getAttribution().creatorId;
+    if (creator === config.creator.id) $('referral').textContent = `You arrived through ${config.creator.name}'s creator link.`;
+    else {
+      $('referral').textContent = 'No active creator referral. ';
+      const link = document.createElement('a'); link.href = `/shop?creator=${encodeURIComponent(config.creator.id)}`; link.textContent = 'Try the creator link ↗'; $('referral').append(link);
+    }
+  }
+  if (!['127.0.0.1', 'localhost', '[::1]'].includes(location.hostname)) document.getElementById('merchant-dashboard-link').hidden = true;
+  window.CreatorRewards.ready.then(value => {
+    if (!value) { $('shop-error').textContent = 'The campaign could not be loaded. Check that the local demo backend is running.'; $('referral').textContent = 'Campaign unavailable'; $('product-list').replaceChildren(); return; }
+    config = value;
+    renderReferral();
+    render();
+  });
+  window.addEventListener('creator-rewards:config', event => { config = event.detail; renderReferral(); render(); });
+})();
+</script>
+</body></html>

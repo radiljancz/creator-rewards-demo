@@ -1,0 +1,71 @@
+{
+  "title": "Creator Rewards \u2014 A More Personal Reward",
+  "audience": "E-commerce owners considering a pilot",
+  "language": "en-US",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 59.0,
+  "voice": "macOS Samantha (synthetic)",
+  "music": "Original synthesized ambient bed",
+  "scenes": [
+    {
+      "id": "hook",
+      "voice": "A creator brings a customer to your store. What if the reward felt as personal as the recommendation?",
+      "start": 0,
+      "duration": 6.5,
+      "voice_duration": 5.395333333333333
+    },
+    {
+      "id": "idea",
+      "voice": "Meet Creator Rewards. Connect your creator partnerships with personalized product rewards, funded by a budget you control.",
+      "start": 6.5,
+      "duration": 8.433333333333334,
+      "voice_duration": 7.3068125
+    },
+    {
+      "id": "personal",
+      "voice": "A fan chooses a creator design, then adds a personal detail. Arcade generates a personalized product preview. Their story, with their own finishing touch.",
+      "start": 14.933333333333334,
+      "duration": 10.433333333333334,
+      "voice_duration": 9.319520833333334
+    },
+    {
+      "id": "shopify",
+      "voice": "Bring the collection into the shopping experience. Our Shopify prototype shows how a customer can discover a reward while browsing your store.",
+      "start": 25.366666666666667,
+      "duration": 8.7,
+      "voice_duration": 7.597604166666667
+    },
+    {
+      "id": "economics",
+      "voice": "You set the economics: creator commission, the reward budget, and your contribution target. Explore the model before committing to a pilot.",
+      "start": 34.06666666666666,
+      "duration": 9.433333333333334,
+      "voice_duration": 8.305083333333334
+    },
+    {
+      "id": "pilot",
+      "voice": "Start with one store and one creator. Then measure contribution per referred visitor against your current affiliate offer.",
+      "start": 43.5,
+      "duration": 7.6,
+      "voice_duration": 6.4805625
+    },
+    {
+      "id": "cta",
+      "voice": "Make your next creator partnership more personal. Creator Rewards. Let's talk about a pilot.",
+      "start": 51.1,
+      "duration": 7.9,
+      "voice_duration": 5.646729166666667
+    }
+  ],
+  "source_assets": [
+    "docs/qa/arcade-customer-product-full.png",
+    "docs/qa/shopify-final-image-and-thumbnail.png"
+  ],
+  "claims_source": [
+    "docs/pitch-90s.md",
+    "docs/demo-finish-line.md"
+  ],
+  "status": "Marketing draft; no measured uplift or production readiness claimed"
+}

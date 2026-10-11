@@ -1,0 +1,16 @@
+{
+  "campaignId": "creator-rewards-demo",
+  "productId": "coastal-pillow",
+  "scenarioId": "large",
+  "orderContributionBefore": 52000,
+  "campaignBudget": 22000,
+  "creatorCommission": 6000,
+  "platformFee": 2000,
+  "productCost": 14000,
+  "merchantSubsidy": 14000,
+  "fanCopay": 0,
+  "merchantContributionAfter": 30000,
+  "currency": "USD",
+  "pricingSource": "demo_fixture",
+  "demo": true
+}

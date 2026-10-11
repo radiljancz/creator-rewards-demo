@@ -1,0 +1,62 @@
+{
+  "id": "creator-rewards-demo",
+  "demo": true,
+  "currency": "USD",
+  "creator": {
+    "id": "demo-creator",
+    "name": "Alex — outdoor creator",
+    "fictional": true,
+    "demoLink": "/?creator=demo-creator"
+  },
+  "merchant": {
+    "id": "demo-store",
+    "name": "Outdoor demo store",
+    "simulated": true
+  },
+  "collection": {
+    "id": "coastal-trails",
+    "name": "Coastal trails",
+    "products": [
+      {
+        "id": "coastal-pillow",
+        "name": "Coastal trails — concept pillow",
+        "imageUrl": "/assets/coastal-pillow.svg",
+        "imageSource": "illustration",
+        "providerProductId": null,
+        "providerPatternId": null,
+        "providerJobId": null,
+        "generatedAt": null
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "small",
+      "name": "Smaller basket",
+      "orderContributionBefore": 46000,
+      "campaignBudget": 16000,
+      "creatorCommission": 6000,
+      "platformFee": 2000,
+      "productCost": 14000,
+      "merchantSubsidy": 8000,
+      "fanCopay": 6000,
+      "merchantContributionAfter": 30000,
+      "currency": "USD",
+      "pricingSource": "demo_fixture"
+    },
+    {
+      "id": "large",
+      "name": "Larger basket",
+      "orderContributionBefore": 52000,
+      "campaignBudget": 22000,
+      "creatorCommission": 6000,
+      "platformFee": 2000,
+      "productCost": 14000,
+      "merchantSubsidy": 14000,
+      "fanCopay": 0,
+      "merchantContributionAfter": 30000,
+      "currency": "USD",
+      "pricingSource": "demo_fixture"
+    }
+  ]
+}

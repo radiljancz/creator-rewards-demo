@@ -1,0 +1,79 @@
+{% comment %}
+  Creator Rewards for the arcade-creator DEVELOPMENT store only.
+  Install in snippets/creator-rewards.liquid and render once before </body>.
+  The bridge moves this inline experience into MainContent and beside the purchase form.
+  Public configuration only; no provider keys, admin tokens or checkout changes.
+{% endcomment %}
+<script type="application/json" id="creator-rewards-shopify-config">
+{
+  "backendOrigin": "https://luann-swampiest-georgianna.ngrok-free.dev",
+  "campaign": "main",
+  "mapping": {"variants": {"55262142333265": "weekend", "55262149968209": "adventure"}, "products": {}},
+  "storefront": {
+    "pageType": {{ request.page_type | json }},
+    "productVariantId": {{ product.selected_or_first_available_variant.id | append: '' | json }},
+    "cartUrl": {{ routes.cart_url | json }},
+    "weekendUrl": {{ all_products['weekend-power-set'].url | json }},
+    "adventureUrl": {{ all_products['adventure-power-set'].url | json }}
+  }
+}
+</script>
+<style>
+  #creator-rewards-widget{display:block}
+  .cr-storefront,.cr-purchase,.cr-cart{--cr-ink:#173c36;--cr-muted:#52695f;--cr-fog:#f2f5f1;--cr-line:#dbe4dc;color:var(--cr-ink);font-family:var(--font-body-family,system-ui,sans-serif);letter-spacing:0;line-height:1.5}
+  .cr-storefront *,.cr-purchase *,.cr-cart *{box-sizing:border-box}
+  .cr-storefront[hidden],.cr-storefront [hidden],.cr-purchase[hidden],.cr-cart[hidden]{display:none!important}
+  .cr-storefront{max-width:1200px;margin:32px auto 40px;padding:0 36px}
+  .cr-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;background:var(--cr-fog);padding:40px 44px;border-radius:8px}
+  .cr-welcome{font-size:15px;font-weight:600;margin:0 0 16px;color:var(--cr-muted)}
+  .cr-hero h2{font:600 clamp(28px,3.3vw,46px)/1.08 var(--font-heading-family,var(--font-body-family,system-ui,sans-serif));letter-spacing:-1.1px;margin:0 0 18px;color:var(--cr-ink);max-width:480px}
+  .cr-intro{font-size:16px;margin:0 0 22px;max-width:420px}
+  .cr-visual{position:relative;min-width:0}.cr-visual img{display:block;width:100%;aspect-ratio:1;max-height:390px;object-fit:contain;border-radius:4px;background:#e7e9e5}
+  .cr-visual figcaption{font-size:12px;margin:10px 0 0;color:var(--cr-muted)}
+  .cr-contribution{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--cr-line);padding-top:18px;margin-bottom:6px}
+  .cr-contribution strong{font-size:30px;line-height:1.1;letter-spacing:-.7px}.cr-contribution p{font-size:14px;margin:0;color:var(--cr-muted)}
+  .cr-offer-status{font-size:13px;margin:8px 0 16px;max-width:460px}.cr-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .cr-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--cr-ink);border-radius:4px;padding:13px 20px;background:var(--cr-ink);color:white;font:600 14px/1.3 var(--font-body-family,system-ui,sans-serif);cursor:pointer;text-decoration:none;min-height:46px}
+  .cr-button:disabled{opacity:.5;cursor:default}.cr-button:focus-visible,.cr-link:focus-visible,.cr-editor-close:focus-visible{outline:3px solid #527d62;outline-offset:4px}
+  .cr-link{font-size:14px;text-decoration:underline;text-underline-offset:4px;color:var(--cr-ink)}
+  .cr-eligible{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:12px}.cr-eligible a{color:var(--cr-muted);text-decoration:underline;text-underline-offset:3px}
+  .cr-note{margin:16px 0 0;color:var(--cr-muted);font-size:11px}
+  .cr-editor{scroll-margin-top:100px;margin:28px auto 0;max-width:640px}.cr-editor-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 16px}.cr-editor-head h2{font-size:23px;margin:0}.cr-editor-close{background:none;border:0;text-decoration:underline;text-underline-offset:3px;font:inherit;font-size:13px;color:var(--cr-ink);cursor:pointer;padding:10px 0}
+  .cr-purchase{display:grid;grid-template-columns:60px 1fr auto;gap:13px;align-items:center;border-top:1px solid var(--cr-line);border-bottom:1px solid var(--cr-line);padding:15px 0;margin:16px 0;max-width:620px}.cr-purchase img{display:block;width:60px;height:60px;object-fit:contain;border-radius:4px;background:var(--cr-fog)}.cr-purchase strong{font-size:14px}.cr-purchase p{font-size:12px;color:var(--cr-muted);margin:3px 0 0}.cr-purchase .cr-button{font-size:12px;padding:10px 12px;min-height:40px}
+  .cr-cart{display:grid;grid-template-columns:128px 1fr auto;gap:24px;align-items:center;padding:24px;margin:20px 0 28px;background:var(--cr-fog);border:1px solid var(--cr-line);border-radius:6px}.cr-cart img{width:128px;height:128px;object-fit:contain;background:#e7e9e5;border-radius:4px}.cr-cart h2{font-size:23px;letter-spacing:-.5px;margin:0 0 7px}.cr-cart p{font-size:14px;margin:4px 0;color:var(--cr-muted)}.cr-cart-price{font-size:25px;display:block;margin:0 0 10px}
+  #creator-rewards-shopify-status{font:13px/1.5 var(--font-body-family,system-ui,sans-serif);color:#86402e}
+  @media(max-width:749px){.cr-storefront{margin:20px auto 28px;padding:0 18px}.cr-hero{grid-template-columns:1fr;gap:24px;padding:24px}.cr-hero h2{font-size:32px}.cr-visual{margin:0}.cr-visual img{max-height:270px}.cr-hero figure{grid-row:1}.cr-welcome{margin-bottom:12px}.cr-intro{font-size:15px}.cr-purchase{grid-template-columns:48px 1fr;gap:10px}.cr-purchase img{width:48px;height:48px}.cr-purchase .cr-button{grid-column:1/-1}.cr-cart{grid-template-columns:82px 1fr;gap:16px;padding:18px}.cr-cart img{width:82px;height:82px}.cr-cart h2{font-size:19px}.cr-cart>div:last-child{grid-column:1/-1}.cr-cart-price{font-size:23px}.cr-editor-head{align-items:start}.cr-editor-head h2{font-size:20px}}
+  @media(prefers-reduced-motion:reduce){.cr-storefront *{scroll-behavior:auto!important}}
+</style>
+<section id="creator-rewards-storefront" class="cr-storefront" hidden aria-labelledby="creator-rewards-headline">
+  <div class="cr-hero">
+    <div>
+      <p id="creator-rewards-welcome" class="cr-welcome">Connecting to your creator's collection…</p>
+      <h2 id="creator-rewards-headline">Make your next adventure personal.</h2>
+      <p class="cr-intro">Choose an original creator design to go with your setup. Your purchase helps cover it. Making it yours is optional.</p>
+      <div class="cr-contribution"><strong id="creator-rewards-contribution">Choose a setup</strong><p id="creator-rewards-contribution-copy">Your contribution updates with your cart.</p></div>
+      <p id="creator-rewards-offer-status" class="cr-offer-status" role="status"></p>
+      <div class="cr-actions"><button type="button" id="creator-rewards-start" class="cr-button" aria-expanded="false" aria-controls="creator-rewards-editor" disabled>Choose your reward</button><button type="button" id="creator-rewards-retry" class="cr-button" hidden>Retry connection</button><a id="creator-rewards-to-cart" class="cr-link" href="{{ routes.cart_url }}">Review your cart</a></div>
+      <div class="cr-eligible"><a id="creator-rewards-weekend" href="{{ all_products['weekend-power-set'].url }}">Weekend power set · {{ all_products['weekend-power-set'].price | money }}</a><a id="creator-rewards-adventure" href="{{ all_products['adventure-power-set'].url }}">Adventure power set · {{ all_products['adventure-power-set'].price | money }}</a></div>
+      <p class="cr-note">Hackathon demo. Reward completion is simulated; no payment or order is placed.</p>
+      <p id="creator-rewards-shopify-status" role="status" hidden></p>
+    </div>
+    <figure class="cr-visual"><img id="creator-rewards-hero-image" alt="Alex's creator reward" loading="eager" referrerpolicy="no-referrer" hidden><figcaption>A creator original, made with Arcade.</figcaption></figure>
+  </div>
+  <div id="creator-rewards-editor" class="cr-editor" hidden>
+    <div class="cr-editor-head"><h2 id="creator-rewards-editor-title" tabindex="-1">Choose your optional reward</h2><button type="button" id="creator-rewards-close-editor" class="cr-editor-close">Back to shopping</button></div>
+    <div id="creator-rewards-slot"></div>
+  </div>
+</section>
+<aside id="creator-rewards-purchase" class="cr-purchase" hidden aria-label="Optional creator reward">
+  <img id="creator-rewards-purchase-image" alt="Creator reward preview" referrerpolicy="no-referrer" hidden>
+  <div><strong id="creator-rewards-purchase-price">Optional creator reward</strong><p id="creator-rewards-purchase-copy"></p></div>
+  <button type="button" id="creator-rewards-purchase-start" class="cr-button">Choose your reward</button>
+</aside>
+<aside id="creator-rewards-cart" class="cr-cart" hidden aria-labelledby="creator-rewards-cart-title">
+  <img id="creator-rewards-cart-image" alt="Selected creator reward" referrerpolicy="no-referrer" hidden>
+  <div><h2 id="creator-rewards-cart-title">Your creator reward</h2><p id="creator-rewards-cart-copy"></p><p id="creator-rewards-cart-status" role="status"></p><p>Demo reward only. Your Shopify items stay as they are.</p></div>
+  <div><strong id="creator-rewards-cart-price" class="cr-cart-price"></strong><button type="button" id="creator-rewards-cart-start" class="cr-button">Review your reward</button></div>
+</aside>
+<script src="{{ 'creator-rewards-widget.js' | asset_url }}" data-api-origin="https://luann-swampiest-georgianna.ngrok-free.dev" data-illustrative-image-url="{{ 'creator-rewards-coastal.svg' | asset_url }}" data-campaign="main" data-storefront="true"></script>
+<script type="module" src="{{ 'creator-rewards-shopify.js' | asset_url }}"></script>

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env*
+.wrangler/
+.sites-runtime/
+artifacts/
+test-results/

@@ -1,0 +1,40 @@
+CREATOR REWARDS — A MORE PERSONAL REWARD
+
+Audience: e-commerce owners considering a focused creator pilot.
+Language: English (US). Format: 1920 × 1080, 16:9, 30 fps, 59 seconds.
+
+creator-rewards-pilot-en.mp4 — final local marketing draft, burned-in English captions
+captions.en.srt — editable English subtitle sidecar
+voiceover.en.txt — spoken script
+voiceover.wav — isolated synthetic English narration (macOS Samantha)
+soundtrack.wav — narration plus original synthesized ambient music
+poster.jpg — video poster
+storyboard-preview.jpg — seven-scene contact sheet
+storyboard.json — timing, source assets and claims references
+render.py — editable renderer
+
+The video uses the existing saved Arcade product preview and an existing
+Shopify development-store capture. It does not call Arcade, generate a new
+product, change a shop, submit an order, or publish externally.
+
+The $80 + $60 = $140 example is a merchant-configured illustrative reward
+cost model. It is not a verified production quote or landed cost. Pilot
+measurement is proposed; no sales uplift or paid-order attribution is claimed.
+
+CTA: “Let's talk about a pilot.” No booking URL or contact identity was
+provided, so none has been invented. Add a verified destination for a
+specific distribution campaign if required.
+
+RENDER AGAIN
+Requires Python with Pillow and numpy, a working FFmpeg, and the macOS
+Samantha voice. Existing generated AIFF files are reused locally.
+
+VIDEO_FFMPEG=/path/to/ffmpeg python3 marketing/creator-rewards-pilot/render.py
+
+This session used an isolated FFmpeg binary at:
+/private/tmp/creator-rewards-video-runtime/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1
+
+To change narration, edit SCENES in render.py, regenerate the corresponding
+render-assets/voice-NN.aiff with macOS say from the updated voice text, then
+render again. The macOS speech service requires host access; the renderer
+rejects empty voice clips.

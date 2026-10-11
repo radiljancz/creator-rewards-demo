@@ -1,0 +1,10 @@
+{
+  "name": "creator-rewards-demo",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env.local backend/main.mjs",
+    "test": "node --test backend/test/*.test.mjs"
+  }
+}
