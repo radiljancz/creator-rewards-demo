@@ -1,10 +1,18 @@
-# Creator Rewards — functional local demo
+# Creator Rewards × Arcade
 
-A local hackathon demo with an editable campaign, a creator referral link, an embedded widget, live events, and a saved real Arcade product.
+A hackathon demo with an editable campaign, a creator referral link, an embedded widget, live events, and a saved real Arcade product.
 
-The integrated demo is available locally at `http://127.0.0.1:3100/present`, with the merchant studio at `http://127.0.0.1:3100/`. In an already configured environment, start it with `PORT=3100 ARCADE_MODE=live npm start`. Opening a page does not start generation.
+Explore the hosted demo:
+
+- [Demo home](https://creator-rewards-arcade.info954727.chatgpt.site/)
+- [Integrated presentation](https://creator-rewards-arcade.info954727.chatgpt.site/presentation)
+- [Merchant studio](https://creator-rewards-arcade.info954727.chatgpt.site/studio)
+
+Opening a page does not start generation.
 
 The original backend follows the [backend handoff](docs/backend-handoff.md). All monetary values in the model are **USD amounts stored as integer cents**. No real payments, orders, or payouts are processed.
+
+To run the backend locally in the default mock mode:
 
 ```sh
 npm start
