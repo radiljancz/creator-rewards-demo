@@ -18,7 +18,7 @@ To run the backend locally in the default mock mode:
 npm start
 ```
 
-Open `http://127.0.0.1:3000/api/demo/campaign`. Requires Node >=24; verified with 26.8.1. No npm dependencies or build step are required for the local backend. The default mode is `mock`. SQLite data is stored in the Git-ignored `data/demo.sqlite`. The service only allows loopback access.
+Local development requires Node >=24; verified with 26.8.1. No npm dependencies or build step are required for the local backend. The default mode is `mock`. SQLite data is stored in the Git-ignored `data/demo.sqlite`. The development server only allows loopback access. To try the hosted application, use the demo links above.
 
 ```sh
 npm test
